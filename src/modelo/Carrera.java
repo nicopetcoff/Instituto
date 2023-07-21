@@ -55,4 +55,8 @@ public class Carrera {
 
 	}
 
+	public String getNombre() {
+		return this.descripcion;
+	}
+
 }

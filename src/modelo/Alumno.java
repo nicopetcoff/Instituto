@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
+import modelo.ToView.AlumnoToView;
 import modelo.excepciones.NoPudoInscribirseException;
 
 public class Alumno extends PersonaInstituto {

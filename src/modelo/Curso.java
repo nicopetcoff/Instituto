@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import modelo.Enum.Dia;
 import modelo.Enum.Turno;
+import modelo.ToView.CursoToView;
 import modelo.excepciones.NoDictaMateriaException;
 import modelo.excepciones.ProfesorNoDisponibleException;
 

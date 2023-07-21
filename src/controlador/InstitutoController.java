@@ -3,14 +3,14 @@ package controlador;
 import java.util.ArrayList;
 
 import modelo.Curso;
-import modelo.CursoToView;
 import modelo.Instituto;
 import modelo.Materia;
-import modelo.NoExisteDia;
+import modelo.ToView.CursoToView;
 import modelo.ToView.MateriaToView;
 import modelo.excepciones.NoDictaMateriaException;
 import modelo.excepciones.NoExisteAlumnoException;
 import modelo.excepciones.NoExisteCarreraException;
+import modelo.excepciones.NoExisteDia;
 import modelo.excepciones.NoExisteHorario;
 import modelo.excepciones.NoExisteMateriaException;
 import modelo.excepciones.NoExisteProfesor;
@@ -66,7 +66,7 @@ public class InstitutoController {
 	
 	public ArrayList<CursoToView> getCursosDisponibles() {
 
-		return instituto.getCursosDisponibles();
+		return instituto.getCursosDisponibles(); 
 	}
 
 }

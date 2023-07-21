@@ -1,7 +1,11 @@
-package modelo;
+package modelo.ToView;
 
 import java.util.ArrayList;
 
+import modelo.Alumno;
+import modelo.Carrera;
+import modelo.Materia;
+import modelo.Profesor;
 import modelo.Enum.Dia;
 import modelo.Enum.Turno;
 
@@ -21,13 +25,23 @@ public class CursoToView {
 		this.turno = turno;
 		this.dia = dia;
 	}
+	
+	
 
-	public Carrera getCarrera() {
-		return carrera;
+	@Override
+	public String toString() {
+		return "CursoToView [carrera=" + carrera + ", materia=" + materia + ", alumnos=" + alumnos + ", profesor="
+				+ profesor + ", turno=" + turno + ", dia=" + dia + "]";
 	}
 
-	public Materia getMateria() {
-		return materia;
+
+
+	public String getCarrera() {
+		return (carrera.getNombre() +carrera.getCodigo());
+	}
+
+	public String getMateria() {
+		return materia.getDescripcion();
 	}
 
 	public Profesor getProfesor() {

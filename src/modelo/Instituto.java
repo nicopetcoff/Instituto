@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 import modelo.Enum.Dia;
 import modelo.Enum.Turno;
+import modelo.ToView.AlumnoToView;
+import modelo.ToView.CursoToView;
 import modelo.ToView.MateriaToView;
 import modelo.excepciones.NoDictaMateriaException;
 import modelo.excepciones.NoExisteAlumnoException;
 import modelo.excepciones.NoExisteCarreraException;
+import modelo.excepciones.NoExisteDia;
 import modelo.excepciones.NoExisteHorario;
 import modelo.excepciones.NoExisteMateriaException;
 import modelo.excepciones.NoExisteProfesor;
@@ -28,6 +31,19 @@ public class Instituto {
 		this.carreras = new ArrayList<>();
 		this.materias = new ArrayList<>();
 		this.cursos = new ArrayList<>();
+		
+		Carrera c = new Carrera("Quimica",null);
+		Materia m = new Materia("AAA","QUIMICA");
+		Profesor p = new Profesor("Carlos", "peres", "12345");
+		p.agregarMateria(m);
+		Turno t = Turno.MAÑANA;
+		Dia d = Dia.JUEVES;
+		
+		try {
+			cursos.add(new Curso(c, m, p, d, t));
+		} catch (ProfesorNoDisponibleException | NoDictaMateriaException e) {
+			e.printStackTrace();
+		}
 
 	}
 
