@@ -6,7 +6,7 @@ public abstract class PersonaInstituto {
 	protected String documento;
 	protected int legajo;
 	protected static int legajoSiguiente = 1;
-	
+
 	public PersonaInstituto(String nombre, String apellido, String documento) {
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -14,7 +14,7 @@ public abstract class PersonaInstituto {
 		this.legajo = legajoSiguiente;
 		legajoSiguiente++;
 	}
-	
-	
+
+	public abstract int getLegajo();
 
 }

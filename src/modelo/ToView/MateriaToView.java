@@ -1,7 +1,7 @@
 package modelo.ToView;
 
 public class MateriaToView {
-	
+
 	private String codigo;
 	private String descripcion;
 
@@ -22,7 +22,5 @@ public class MateriaToView {
 	public String getDescripcion() {
 		return descripcion;
 	}
-	
-	
 
 }

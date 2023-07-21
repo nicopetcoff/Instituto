@@ -10,10 +10,18 @@ public class Materia {
 	public Materia(String codigo, String descripcion) {
 		this.codigo = codigo;
 		this.descripcion = descripcion;
-	}	
+	}
 
 	public MateriaToView ToView() {
 		return (new MateriaToView(this.codigo, this.descripcion));
+	}
+
+	public String getCodigoMateria() {
+		return this.codigo;
+	}
+
+	public String getDescripcion() {
+		return this.descripcion;
 	}
 
 }

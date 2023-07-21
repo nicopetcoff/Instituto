@@ -24,7 +24,7 @@ public class Carrera {
 	public int getCodigo() {
 		return this.codigo;
 	}
-	
+
 	public boolean getActivo() {
 		return this.activa;
 	}
@@ -38,22 +38,21 @@ public class Carrera {
 	public void agregarMateria(Materia m) {
 		this.materiasCarrera.add(m);
 	}
-	
-	public ArrayList<MateriaToView> getMateriasCarrera(){
-		ArrayList<MateriaToView> materiasToView= new ArrayList<>();
-		
-		for(Materia m : materiasCarrera) {
+
+	public ArrayList<MateriaToView> getMateriasCarrera() {
+		ArrayList<MateriaToView> materiasToView = new ArrayList<>();
+
+		for (Materia m : materiasCarrera) {
 			materiasToView.add(m.ToView());
 		}
-		
+
 		return materiasToView;
 	}
-	
+
 	public CarreraToView carreraToView() {
-		
+
 		return (new CarreraToView(this.descripcion, this.materiasCarrera));
-		
+
 	}
-	
 
 }

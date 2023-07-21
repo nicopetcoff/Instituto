@@ -1,13 +1,13 @@
 package modelo.excepciones;
 
-public class NoExisteCarreraException extends Exception {
+public class NoExisteHorario extends Exception {
 
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public NoExisteCarreraException(String message) {
+	public NoExisteHorario(String message) {
 		super(message);
 
 	}
