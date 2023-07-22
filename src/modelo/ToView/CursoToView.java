@@ -25,16 +25,12 @@ public class CursoToView {
 		this.turno = turno;
 		this.dia = dia;
 	}
-	
-	
 
 	@Override
 	public String toString() {
 		return "CursoToView [carrera=" + carrera + ", materia=" + materia + ", alumnos=" + alumnos + ", profesor="
 				+ profesor + ", turno=" + turno + ", dia=" + dia + "]";
 	}
-
-
 
 	public CarreraToView getCarrera() {
 		return carrera.carreraToView();

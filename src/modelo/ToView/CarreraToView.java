@@ -21,6 +21,7 @@ public class CarreraToView {
 	public String toString() {
 		return descripcion;
 	}
+
 	public int getCodigo() {
 		return this.codigoCarrera;
 	}

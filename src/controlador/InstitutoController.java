@@ -2,7 +2,6 @@ package controlador;
 
 import java.util.ArrayList;
 
-import modelo.Curso;
 import modelo.Instituto;
 import modelo.Materia;
 import modelo.ToView.AlumnoToView;
@@ -31,11 +30,6 @@ public class InstitutoController {
 		instituto.altaCarrera(descripcion, materias);
 	}
 
-	public void agregarMateriaNuevaACarrera(int codigoCarrera, String codigoMateria, String descripcionMateria)
-			throws NoExisteCarreraException {
-		instituto.agregarMateriaNuevaACarrera(codigoCarrera, codigoMateria, descripcionMateria);
-	}
-
 	public void agregarMateriaExistenteACarrera(int codigoCarrera, String codigoMateria, String descripcionMateria)
 			throws NoExisteCarreraException, NoExisteMateriaException {
 		instituto.agregarMateriaExistenteACarrera(codigoCarrera, codigoMateria, descripcionMateria);
@@ -57,8 +51,17 @@ public class InstitutoController {
 		instituto.inscribirAlumnoEnCurso(legajoAlumno, codigoCarrera, codigoMateria, descripcionMateria);
 	}
 
-	public void agregarProfesor(String nombre, String apellido, String dni) {
-		instituto.agregarProfesor(nombre, apellido, dni);
+	public int agregarProfesor(String nombre, String apellido, String dni) {
+		return instituto.agregarProfesor(nombre, apellido, dni);
+	}
+
+	public void agregarMateriaAProfesor(int nroLegajo, String codigoMateria, String descripcionMateria)
+			throws NoExisteProfesor, NoExisteMateriaException {
+		instituto.agregarMateriaAProfesor(nroLegajo, codigoMateria, descripcionMateria);
+	}
+
+	public ArrayList<MateriaToView> getMateriaToView() {
+		return instituto.getMateriasExistentes();
 	}
 
 	public void agregarAlumnoNuevo(String nombre, String apellido, String dni) {
@@ -73,8 +76,8 @@ public class InstitutoController {
 	public ArrayList<AlumnoToView> getAlumnosDelCurso(int codigoCarrera, String codigoMateria,
 			String descripcionMateria)
 			throws NoexisteCursoException, NoExisteMateriaException, NoExisteCarreraException {
-		
-		return instituto.alumnosDelCurso(codigoCarrera, codigoMateria, descripcionMateria);
+
+		return instituto.getAlumnosDelCurso(codigoCarrera, codigoMateria, descripcionMateria);
 
 	}
 

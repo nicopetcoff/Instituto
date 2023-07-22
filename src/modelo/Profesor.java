@@ -41,7 +41,7 @@ public class Profesor extends PersonaInstituto {
 			throw new NoDictaMateriaException("No dicta la materia");
 		}
 	}
-	
+
 	public void agregarMateria(Materia m) {
 		this.materiasDictadas.add(m);
 	}

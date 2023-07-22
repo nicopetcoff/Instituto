@@ -1,18 +1,14 @@
 package vista;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SpringLayout.Constraints;
-import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 import controlador.InstitutoController;
@@ -73,12 +69,12 @@ public class VistaListadoAlumnoProfesorCurso extends JFrame {
 
 					MateriaToView materia = (MateriaToView) tablaCursos.getValueAt(filaElegida, 1);
 
-					try {					
+					try {
 
 						VentanaAlumnosDelCurso ventana = new VentanaAlumnosDelCurso(controlador.getAlumnosDelCurso(
 								carrera.getCodigo(), materia.getCodigo(), materia.getDescripcion()));
 						ventana.setVisible(true);
-						
+
 						dispose();
 
 					} catch (NoexisteCursoException | NoExisteMateriaException | NoExisteCarreraException e1) {

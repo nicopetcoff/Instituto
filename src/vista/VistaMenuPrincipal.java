@@ -44,7 +44,34 @@ public class VistaMenuPrincipal extends JFrame {
 				vista.setVisible(true);
 			}
 		});
+
+		JButton agregarProfesor = new JButton("Agregar Profesor nuevo");
+		cont.add(agregarProfesor);
+
+		agregarProfesor.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				VentanaAgregarProfesor ventana = new VentanaAgregarProfesor();
+				ventana.setVisible(true);
+
+			}
+		});
 		
+		JButton crearMateria = new JButton("Crear Materia");
+		panel.add(crearMateria);
+		
+		crearMateria.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaCrearMateria ventana = new VentanaCrearMateria();
+				ventana.setVisible (true);
+			}
+		});
+
 		pack();
 	}
 
