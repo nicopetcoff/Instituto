@@ -35,9 +35,11 @@ public class VentanaCrearCarrera extends JFrame{
 				 String nombre = nombreTextField.getText();
 	                String descripcion = descripcionTextArea.getText();
 
-	                //
-	                controlador.altaCarrera(nombre, descripcion, null);
-				
+	                int codigoCarrera = controlador.altaCarrera(nombre, descripcion, null);
+	                
+	                JOptionPane.showMessageDialog(null, "Se ha creado la carrear, su codigo: " +codigoCarrera);
+	                
+	                dispose();
 			}
 		});
         panel.add(nombreLabel);

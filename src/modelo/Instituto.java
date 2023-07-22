@@ -46,9 +46,11 @@ public class Instituto {
 		return instance;
 	}
 
-	public void altaCarrera(String nombre,String descripcion, ArrayList<Materia> materias1) {
+	public int altaCarrera(String nombre,String descripcion, ArrayList<Materia> materias1) {
 		Carrera c = new Carrera(nombre,descripcion, materias1);
 		carreras.add(c);
+		
+		return c.getCodigo();
 	}
 	
 	public void asignarMateriasACarrera() {
@@ -220,6 +222,7 @@ public class Instituto {
 		}
 		throw new NoExisteMateriaException("No existe la materia");
 	}
+	
 
 	private Carrera buscarCarrera(int codigo) throws NoExisteCarreraException {
 		for (Carrera c : carreras) {

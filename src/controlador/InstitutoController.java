@@ -26,8 +26,8 @@ public class InstitutoController {
 		instituto = Instituto.getInstance();
 	}
 
-	public void altaCarrera(String nombre, String descripcion, ArrayList<Materia> materias) {
-		instituto.altaCarrera(nombre, descripcion, null);
+	public int altaCarrera(String nombre, String descripcion, ArrayList<Materia> materias) {
+		return instituto.altaCarrera(nombre, descripcion, null);
 	}
 
 	public void agregarMateriaExistenteACarrera(int codigoCarrera, String codigoMateria, String descripcionMateria)

@@ -72,10 +72,10 @@ public class VistaMenuPrincipal extends JFrame {
 			}
 		});
 		
-		JButton asignarMAteriaProfesor = new JButton("Asignar Materia a Profesor");
-		cont.add(asignarMAteriaProfesor);
+		JButton asignarMateriaProfesor = new JButton("Asignar Materia a Profesor");
+		cont.add(asignarMateriaProfesor);
 		
-		asignarMAteriaProfesor.addActionListener(new ActionListener() {
+		asignarMateriaProfesor.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -103,6 +103,19 @@ public class VistaMenuPrincipal extends JFrame {
 		});
 		
 		JButton asignarMateriasCarrera = new JButton("Asignar materias a la carrera");
+		cont.add(asignarMateriasCarrera);
+		
+		asignarMateriasCarrera.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				VentanaAsignarMateriasCarrera ventana= new VentanaAsignarMateriasCarrera();
+				ventana.setVisible(true);
+				
+			}
+		});
 
 		pack();
 	}
