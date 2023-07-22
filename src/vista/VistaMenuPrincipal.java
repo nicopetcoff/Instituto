@@ -101,6 +101,8 @@ public class VistaMenuPrincipal extends JFrame {
 				
 			}
 		});
+		
+		JButton asignarMateriasCarrera = new JButton("Asignar materias a la carrera");
 
 		pack();
 	}
