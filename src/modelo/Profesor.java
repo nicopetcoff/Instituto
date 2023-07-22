@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
+import modelo.ToView.ProfesorToView;
 import modelo.excepciones.NoDictaMateriaException;
 
 public class Profesor extends PersonaInstituto {
@@ -48,6 +49,10 @@ public class Profesor extends PersonaInstituto {
 	@Override
 	public int getLegajo() {
 		return this.legajo;
+	}
+
+	public ProfesorToView toView() {
+		return (new ProfesorToView(this.nombre, this.apellido));
 	}
 
 }

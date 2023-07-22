@@ -17,7 +17,6 @@ public class VistaMenuPrincipal extends JFrame {
 	public VistaMenuPrincipal() {
 
 		super("Menu Principal");
-		setSize(600, 500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -45,6 +44,8 @@ public class VistaMenuPrincipal extends JFrame {
 				vista.setVisible(true);
 			}
 		});
+		
+		pack();
 	}
 
 }

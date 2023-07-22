@@ -51,7 +51,7 @@ public class Carrera {
 
 	public CarreraToView carreraToView() {
 
-		return (new CarreraToView(this.descripcion, this.materiasCarrera));
+		return (new CarreraToView(this.codigo,this.descripcion, this.materiasCarrera));
 
 	}
 

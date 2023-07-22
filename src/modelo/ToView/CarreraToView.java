@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import modelo.Materia;
 
 public class CarreraToView {
+	private int codigoCarrera;
 	private String descripcion;
 	private ArrayList<Materia> materiasCarrera;
 
-	public CarreraToView(String descripcion, ArrayList<Materia> materiasCarrera) {
+	public CarreraToView(int codigoCarrera, String descripcion, ArrayList<Materia> materiasCarrera) {
 
+		this.codigoCarrera = codigoCarrera;
 		this.descripcion = descripcion;
 		this.materiasCarrera = new ArrayList<>();
 
@@ -17,7 +19,10 @@ public class CarreraToView {
 
 	@Override
 	public String toString() {
-		return "CarreraToView [descripcion=" + descripcion + ", materiasCarrera=" + materiasCarrera + "]";
+		return descripcion;
+	}
+	public int getCodigo() {
+		return this.codigoCarrera;
 	}
 
 	public String getDescripcion() {

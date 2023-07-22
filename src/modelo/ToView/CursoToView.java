@@ -36,16 +36,16 @@ public class CursoToView {
 
 
 
-	public String getCarrera() {
-		return (carrera.getNombre() +carrera.getCodigo());
+	public CarreraToView getCarrera() {
+		return carrera.carreraToView();
 	}
 
-	public String getMateria() {
-		return materia.getDescripcion();
+	public MateriaToView getMateria() {
+		return materia.ToView();
 	}
 
-	public Profesor getProfesor() {
-		return profesor;
+	public ProfesorToView getProfesor() {
+		return profesor.toView();
 	}
 
 	public Turno getTurno() {

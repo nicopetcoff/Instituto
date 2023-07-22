@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import modelo.Curso;
 import modelo.Instituto;
 import modelo.Materia;
+import modelo.ToView.AlumnoToView;
 import modelo.ToView.CursoToView;
 import modelo.ToView.MateriaToView;
 import modelo.excepciones.NoDictaMateriaException;
@@ -63,10 +64,18 @@ public class InstitutoController {
 	public void agregarAlumnoNuevo(String nombre, String apellido, String dni) {
 		instituto.agregarAlumnoNuevo(nombre, apellido, dni);
 	}
-	
+
 	public ArrayList<CursoToView> getCursosDisponibles() {
 
-		return instituto.getCursosDisponibles(); 
+		return instituto.getCursosDisponibles();
+	}
+
+	public ArrayList<AlumnoToView> getAlumnosDelCurso(int codigoCarrera, String codigoMateria,
+			String descripcionMateria)
+			throws NoexisteCursoException, NoExisteMateriaException, NoExisteCarreraException {
+		
+		return instituto.alumnosDelCurso(codigoCarrera, codigoMateria, descripcionMateria);
+
 	}
 
 }

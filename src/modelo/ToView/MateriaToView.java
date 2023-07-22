@@ -12,7 +12,7 @@ public class MateriaToView {
 
 	@Override
 	public String toString() {
-		return "MateriaToView [codigo=" + codigo + ", descripcion=" + descripcion + "]";
+		return descripcion;
 	}
 
 	public String getCodigo() {

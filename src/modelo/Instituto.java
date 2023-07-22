@@ -31,10 +31,18 @@ public class Instituto {
 		this.carreras = new ArrayList<>();
 		this.materias = new ArrayList<>();
 		this.cursos = new ArrayList<>();
+		this.profesores = new ArrayList<Profesor>();
+		this.alumnos = new ArrayList<Alumno>();
 		
 		Carrera c = new Carrera("Quimica",null);
+		carreras.add(c);
+		
 		Materia m = new Materia("AAA","QUIMICA");
+		materias.add(m);
+	
 		Profesor p = new Profesor("Carlos", "peres", "12345");
+		profesores.add(p);
+		
 		p.agregarMateria(m);
 		Turno t = Turno.MAÑANA;
 		Dia d = Dia.JUEVES;
@@ -62,29 +70,19 @@ public class Instituto {
 
 	public void agregarMateriaNuevaACarrera(int codigoCarrera, String codigoMateria, String descripcionMateria)
 			throws NoExisteCarreraException {
-		Carrera c = tengoEsaCarrera(codigoCarrera);
-		if (c != null) {
-			this.materias.add(c.agregarMateriaNueva(codigoMateria, descripcionMateria));
-		} else {
-			throw new NoExisteCarreraException("No existe la carreara");
-		}
+		Carrera c = buscarCarrera(codigoCarrera);
+		
+		this.materias.add(c.agregarMateriaNueva(codigoMateria, descripcionMateria));
 	}
 
 	public void agregarMateriaExistenteACarrera(int codigoCarrera, String codigoMateria, String descripcionMateria)
 			throws NoExisteCarreraException, NoExisteMateriaException {
-		Carrera c = tengoEsaCarrera(codigoCarrera);
-		Materia m = tengoEsaMateria(codigoMateria, descripcionMateria);
+		Carrera c = buscarCarrera(codigoCarrera);
+		Materia m = buscarMateria(codigoMateria, descripcionMateria);
 
-		if (c != null) {
-			if (m != null) {
-				c.agregarMateria(m);
-			} else {
-				throw new NoExisteMateriaException("No exista la materia");
-			}
-		} else {
-			throw new NoExisteCarreraException("No existe la carreara");
-		}
+		c.agregarMateria(m);
 	}
+	
 
 	public ArrayList<MateriaToView> getMateriasExistentes() {
 		ArrayList<MateriaToView> materiasToView = new ArrayList<>();
@@ -94,46 +92,21 @@ public class Instituto {
 		}
 		return materiasToView;
 	}
+	
 
 	public void altaCurso(int codigoCarrera, String codigoMateria, String descripcionMateria, int legajoProfesor,
 			String turno, String dia) throws ProfesorNoDisponibleException, NoDictaMateriaException,
 			NoExisteCarreraException, NoExisteMateriaException, NoExisteProfesor, NoExisteHorario, NoExisteDia {
 
-		Carrera car = tengoEsaCarrera(codigoCarrera);
-		Materia m = tengoEsaMateria(codigoMateria, descripcionMateria);
-		Profesor p = tengoEseProfesor(legajoProfesor);
-		Turno t = soyEseTurno(turno);
-		Dia d = soyEseDia(dia);
+		Carrera car = buscarCarrera(codigoCarrera);
+		Materia m = buscarMateria(codigoMateria, descripcionMateria);
+		Profesor p = buscarProfesor(legajoProfesor);
+		Turno t = buscarTurno(turno);
+		Dia d = buscarDia(dia);
+		
+		Curso c = new Curso(car, m, p, d, t);
 
-		if (car != null) {
-			if (m != null) {
-				if (p != null) {
-					if (t != null) {
-						if (d != null) {
-
-							Curso c = new Curso(car, m, p, d, t);
-
-							cursos.add(c);
-
-						} else {
-							throw new NoExisteDia("No existe dia");
-						}
-
-					} else {
-						throw new NoExisteHorario("No existe horario");
-					}
-
-				} else {
-					throw new NoExisteProfesor("No existe el profesor");
-				}
-
-			} else {
-				throw new NoExisteMateriaException("No existe la materia");
-			}
-
-		} else {
-			throw new NoExisteCarreraException("No existe la carrera");
-		}
+		cursos.add(c);
 
 	}
 
@@ -151,31 +124,13 @@ public class Instituto {
 			String descripcionMateria) throws NoExisteAlumnoException, NoExisteCarreraException,
 			NoExisteMateriaException, NoPudoInscribirseException, NoexisteCursoException {
 
-		Alumno a = tengoEseAlumno(legajoAlumno);
-		Carrera car = tengoEsaCarrera(codigoCarrera);
-		Materia m = tengoEsaMateria(codigoMateria, descripcionMateria);
-		Curso cur = tengoEseCurso(car, m);
+		Alumno a = buscarAlumno(legajoAlumno);
+		Carrera car = buscarCarrera(codigoCarrera);
+		Materia m = buscarMateria(codigoMateria, descripcionMateria);
+		Curso cur = buscarCurso(car, m);
+		
+		a.inscribirseEnCurso(cur);
 
-		if (a != null) {
-			if (car != null) {
-				if (m != null) {
-					if (cur != null) {
-						a.inscribirseEnCurso(cur);
-					} else {
-						throw new NoexisteCursoException("No existe el curso");
-					}
-
-				} else {
-					throw new NoExisteMateriaException("No existe materia");
-				}
-
-			} else {
-				throw new NoExisteCarreraException("No existe carrera");
-			}
-
-		} else {
-			throw new NoExisteAlumnoException("No existe el alumno");
-		}
 
 	}
 
@@ -193,58 +148,44 @@ public class Instituto {
 	public ArrayList<AlumnoToView> alumnosDelCurso(int codigoCarrera, String codigoMateria, String descripcionMateria)
 			throws NoexisteCursoException, NoExisteMateriaException, NoExisteCarreraException {
 
-		Carrera car = tengoEsaCarrera(codigoCarrera);
-		Materia m = tengoEsaMateria(codigoMateria, descripcionMateria);
-		Curso cur = tengoEseCurso(car, m);
+		Carrera car = buscarCarrera(codigoCarrera);
+		Materia m = buscarMateria(codigoMateria, descripcionMateria);
+		Curso cur = buscarCurso(car, m);
 
 		ArrayList<AlumnoToView> alumnosToView = new ArrayList<>();
-
-		if (car != null) {
-			if (m != null) {
-				if (cur != null) {
-
-					for (Alumno a : cur.getAlumnos()) {
-						alumnosToView.add(a.toView());
-					}
-
-					return alumnosToView;
-
-				} else {
-					throw new NoexisteCursoException("No existe el curso");
-				}
-
-			} else {
-				throw new NoExisteMateriaException("No existe materia");
-			}
-
-		} else {
-			throw new NoExisteCarreraException("No existe carrera");
+		
+		for (Alumno a : cur.getAlumnos()) {
+			alumnosToView.add(a.toView());
 		}
 
+		return alumnosToView;
+
 	}
+	
+	
 
 	// -----------------------------------------------------------------------------------------------------------------------------------------------------
 
-	private Curso tengoEseCurso(Carrera car, Materia m) {
+	private Curso buscarCurso(Carrera car, Materia m) throws NoexisteCursoException {
 
 		for (Curso cur : cursos) {
 			if (cur.getMateria().equals(m) && cur.getCarrera().equals(car)) {
 				return cur;
 			}
 		}
-		return null;
+		throw new NoexisteCursoException("No existe el curso") ;
 	}
 
-	private Alumno tengoEseAlumno(int legajoAlumno) {
+	private Alumno buscarAlumno(int legajoAlumno) throws NoExisteAlumnoException {
 		for (Alumno a : alumnos) {
 			if (a.getLegajo() == legajoAlumno) {
 				return a;
 			}
 		}
-		return null;
+		throw new NoExisteAlumnoException("No existe el Alumno");
 	}
 
-	private Dia soyEseDia(String dia) {
+	private Dia buscarDia(String dia) throws NoExisteDia {
 
 		Dia[] dias = Dia.values();
 
@@ -254,10 +195,10 @@ public class Instituto {
 			}
 		}
 
-		return null;
+		throw new NoExisteDia ("No existe el dia");
 	}
 
-	private Turno soyEseTurno(String turno) {
+	private Turno buscarTurno(String turno) throws NoExisteHorario {
 
 		Turno[] turnos = Turno.values();
 
@@ -266,35 +207,35 @@ public class Instituto {
 				return t;
 			}
 		}
-		return null;
+		throw new NoExisteHorario ("No existe el turno");
 	}
 
-	private Profesor tengoEseProfesor(int legajoProfesor) {
+	private Profesor buscarProfesor(int legajoProfesor) throws NoExisteProfesor {
 
 		for (Profesor p : profesores) {
 			if (p.getLegajo() == legajoProfesor) {
 				return p;
 			}
 		}
-		return null;
+		throw new NoExisteProfesor("No existe el Profesor");
 	}
 
-	private Materia tengoEsaMateria(String codigoMateria, String descripcionMateria) {
+	private Materia buscarMateria(String codigoMateria, String descripcionMateria) throws NoExisteMateriaException {
 		for (Materia m : materias) {
 			if (m.getCodigoMateria().equals(codigoMateria) && m.getDescripcion().equals(descripcionMateria)) {
 				return m;
 			}
 		}
-		return null;
+		throw new NoExisteMateriaException("No existe la materia");
 	}
 
-	private Carrera tengoEsaCarrera(int codigo) {
+	private Carrera buscarCarrera(int codigo) throws NoExisteCarreraException {
 		for (Carrera c : carreras) {
 			if (c.getCodigo() == codigo && c.getActivo()) {
 				return c;
 			}
 		}
-		return null;
+		throw new NoExisteCarreraException("No existe la carrera");
 	}
 
 }
