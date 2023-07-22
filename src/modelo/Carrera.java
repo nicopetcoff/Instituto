@@ -6,14 +6,16 @@ import modelo.ToView.CarreraToView;
 import modelo.ToView.MateriaToView;
 
 public class Carrera {
-
+	
+	private String nombre;
 	private int codigo;
 	private static int codigoSiguiente = 1;
 	private String descripcion;
 	private ArrayList<Materia> materiasCarrera;
 	private boolean activa;
 
-	public Carrera(String descripcion, ArrayList<Materia> materiasCarrera) {
+	public Carrera(String nombre, String descripcion, ArrayList<Materia> materiasCarrera) {
+		this.nombre = nombre;
 		this.codigo = codigoSiguiente;
 		codigoSiguiente++;
 		this.descripcion = descripcion;

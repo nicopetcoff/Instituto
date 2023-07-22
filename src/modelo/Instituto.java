@@ -46,9 +46,13 @@ public class Instituto {
 		return instance;
 	}
 
-	public void altaCarrera(String descripcion, ArrayList<Materia> materias1) {
-		Carrera c = new Carrera(descripcion, materias1);
+	public void altaCarrera(String nombre,String descripcion, ArrayList<Materia> materias1) {
+		Carrera c = new Carrera(nombre,descripcion, materias1);
 		carreras.add(c);
+	}
+	
+	public void asignarMateriasACarrera() {
+		
 	}
 
 	public void agregarMateriaExistenteACarrera(int codigoCarrera, String codigoMateria, String descripcionMateria)

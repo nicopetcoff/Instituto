@@ -60,7 +60,7 @@ public class VistaMenuPrincipal extends JFrame {
 		});
 		
 		JButton crearMateria = new JButton("Crear Materia");
-		panel.add(crearMateria);
+		cont.add(crearMateria);
 		
 		crearMateria.addActionListener(new ActionListener() {
 			
@@ -69,6 +69,36 @@ public class VistaMenuPrincipal extends JFrame {
 				
 				VentanaCrearMateria ventana = new VentanaCrearMateria();
 				ventana.setVisible (true);
+			}
+		});
+		
+		JButton asignarMAteriaProfesor = new JButton("Asignar Materia a Profesor");
+		cont.add(asignarMAteriaProfesor);
+		
+		asignarMAteriaProfesor.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				VentanaAsignarMateriaProfesor ventana = new VentanaAsignarMateriaProfesor();
+				ventana.setVisible(true);
+				
+			}
+		});
+		
+		JButton crearCarrera = new JButton("Crear Carrera");
+		cont.add(crearCarrera);
+		
+		crearCarrera.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				VentanaCrearCarrera ventana = new VentanaCrearCarrera();
+				ventana.setVisible(true);
+				
 			}
 		});
 

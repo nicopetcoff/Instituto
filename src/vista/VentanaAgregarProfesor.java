@@ -16,7 +16,7 @@ import controlador.InstitutoController;
 public class VentanaAgregarProfesor extends JFrame {
 
 	InstitutoController controlador = new InstitutoController();
-
+	
 	public VentanaAgregarProfesor() {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -34,6 +34,7 @@ public class VentanaAgregarProfesor extends JFrame {
 		JTextField dniField = new JTextField(10);
 
 		JButton aceptar = new JButton("Aceptar");
+		
 
 		aceptar.addActionListener(new ActionListener() {
 
@@ -48,10 +49,11 @@ public class VentanaAgregarProfesor extends JFrame {
 
 				JOptionPane.showMessageDialog(null, "Se ha registrago profesor con Legajo N°: " + nroLegajoProfesor, "",
 						JOptionPane.INFORMATION_MESSAGE);
-
 				dispose();
+
 			}
-		});
+		});		
+		
 
 		panel.add(nombreLabel);
 		panel.add(nombreField);

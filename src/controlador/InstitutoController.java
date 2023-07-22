@@ -26,13 +26,17 @@ public class InstitutoController {
 		instituto = Instituto.getInstance();
 	}
 
-	public void altaCarrera(String descripcion, ArrayList<Materia> materias) {
-		instituto.altaCarrera(descripcion, materias);
+	public void altaCarrera(String nombre, String descripcion, ArrayList<Materia> materias) {
+		instituto.altaCarrera(nombre, descripcion, null);
 	}
 
 	public void agregarMateriaExistenteACarrera(int codigoCarrera, String codigoMateria, String descripcionMateria)
 			throws NoExisteCarreraException, NoExisteMateriaException {
 		instituto.agregarMateriaExistenteACarrera(codigoCarrera, codigoMateria, descripcionMateria);
+	}
+	
+	public void crearMateriaNueva(String codigoMateria, String descripcionMateria) {
+		instituto.crearMateriaNueva(codigoMateria, descripcionMateria);
 	}
 
 	public ArrayList<MateriaToView> getMateriasExistentes() {
@@ -55,9 +59,9 @@ public class InstitutoController {
 		return instituto.agregarProfesor(nombre, apellido, dni);
 	}
 
-	public void agregarMateriaAProfesor(int nroLegajo, String codigoMateria, String descripcionMateria)
+	public void agregarMateriaAProfesor(int nroLegajo, String codigo, String descripcion)
 			throws NoExisteProfesor, NoExisteMateriaException {
-		instituto.agregarMateriaAProfesor(nroLegajo, codigoMateria, descripcionMateria);
+		instituto.agregarMateriaAProfesor(nroLegajo, codigo, descripcion);
 	}
 
 	public ArrayList<MateriaToView> getMateriaToView() {
