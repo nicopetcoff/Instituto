@@ -19,6 +19,8 @@ public class VistaMenuPrincipal extends JFrame {
 		super("Menu Principal");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setSize(500, 400);
 
 		JPanel panel = new JPanel(new BorderLayout());
 		add(panel);
@@ -116,8 +118,21 @@ public class VistaMenuPrincipal extends JFrame {
 				
 			}
 		});
+		
+		JButton crearCurso = new JButton("Crear Curso");
+		cont.add(crearCurso);
+		crearCurso.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaCrearCurso ventana = new VentanaCrearCurso();
+				ventana.setVisible(true);
+				
+			}
+		});
 
-		pack();
+		//pack();
 	}
 
 }

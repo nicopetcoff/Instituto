@@ -53,7 +53,7 @@ public class VentanaAsignarMateriasCarrera extends JFrame {
 		JLabel codigoCarreraLabel = new JLabel("Ingrese codigo Carrera: ");
 		JTextField codigoCarreraField = new JTextField(10);
 
-		cont.add(codigoCarreraField);
+		cont.add(codigoCarreraLabel);
 		cont.add(codigoCarreraField);
 		panel.add(cont);
 

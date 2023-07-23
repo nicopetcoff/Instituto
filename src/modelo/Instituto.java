@@ -53,10 +53,7 @@ public class Instituto {
 		return c.getCodigo();
 	}
 	
-	public void asignarMateriasACarrera() {
-		
-	}
-
+	
 	public void agregarMateriaExistenteACarrera(int codigoCarrera, String codigoMateria, String descripcionMateria)
 			throws NoExisteCarreraException, NoExisteMateriaException {
 		Carrera c = buscarCarrera(codigoCarrera);
