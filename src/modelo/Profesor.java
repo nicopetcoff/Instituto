@@ -52,7 +52,7 @@ public class Profesor extends PersonaInstituto {
 	}
 
 	public ProfesorToView toView() {
-		return (new ProfesorToView(this.nombre, this.apellido));
+		return (new ProfesorToView(this.nombre, this.apellido, this.legajo));
 	}
 
 }

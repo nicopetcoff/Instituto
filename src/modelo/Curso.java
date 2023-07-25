@@ -20,11 +20,11 @@ public class Curso {
 	public Curso(Carrera carrera, Materia materia, Profesor profesor, Dia dia, Turno turno)
 			throws ProfesorNoDisponibleException, NoDictaMateriaException {
 		this.carrera = carrera;
-		this.materia = materia;
-		this.profesor = validarHorario(profesor);
+		this.materia = materia;		
 		this.alumnos = new ArrayList<>();
 		this.dia = dia;
 		this.turno = turno;
+		this.profesor = validarHorario(profesor);
 	}
 
 	private Profesor validarHorario(Profesor profesor2) throws ProfesorNoDisponibleException, NoDictaMateriaException {

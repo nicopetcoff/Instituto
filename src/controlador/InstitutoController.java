@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import modelo.Instituto;
 import modelo.Materia;
 import modelo.ToView.AlumnoToView;
+import modelo.ToView.CarreraToView;
 import modelo.ToView.CursoToView;
 import modelo.ToView.MateriaToView;
+import modelo.ToView.ProfesorToView;
 import modelo.excepciones.NoDictaMateriaException;
 import modelo.excepciones.NoExisteAlumnoException;
 import modelo.excepciones.NoExisteCarreraException;
@@ -52,11 +54,16 @@ public class InstitutoController {
 	public void inscribirAlumnoEnCurso(int legajoAlumno, int codigoCarrera, String codigoMateria,
 			String descripcionMateria) throws NoExisteAlumnoException, NoExisteCarreraException,
 			NoExisteMateriaException, NoPudoInscribirseException, NoexisteCursoException {
+		
 		instituto.inscribirAlumnoEnCurso(legajoAlumno, codigoCarrera, codigoMateria, descripcionMateria);
 	}
 
 	public int agregarProfesor(String nombre, String apellido, String dni) {
 		return instituto.agregarProfesor(nombre, apellido, dni);
+	}
+	
+	public ArrayList<ProfesorToView> getProfesoresDisponibles(){
+		return instituto.getProfesoresDisponibles();
 	}
 
 	public void agregarMateriaAProfesor(int nroLegajo, String codigo, String descripcion)
@@ -66,10 +73,6 @@ public class InstitutoController {
 
 	public ArrayList<MateriaToView> getMateriaToView() {
 		return instituto.getMateriasExistentes();
-	}
-
-	public void agregarAlumnoNuevo(String nombre, String apellido, String dni) {
-		instituto.agregarAlumnoNuevo(nombre, apellido, dni);
 	}
 
 	public ArrayList<CursoToView> getCursosDisponibles() {
@@ -83,6 +86,16 @@ public class InstitutoController {
 
 		return instituto.getAlumnosDelCurso(codigoCarrera, codigoMateria, descripcionMateria);
 
+	}
+
+	public ArrayList<CarreraToView> getCarrerasExistentes() {
+		
+		return instituto.getCarrerasExistenes();
+	}
+
+	public int crearAlumno(String nombre, String apellido, String dni) {
+		
+		return instituto.agregarAlumnoNuevo(nombre, apellido, dni);
 	}
 
 }

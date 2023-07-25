@@ -18,8 +18,9 @@ public class Alumno extends PersonaInstituto {
 		if (puedeIncribirse(curso)) {
 			cursosInscripto.add(curso);
 			curso.agregarAlumno(this); // agrego el alumno al curso tambien
-		}
-		throw new NoPudoInscribirseException("No pudo iscribise");
+		}else {
+			throw new NoPudoInscribirseException("No pudo iscribise");
+		}		
 	}
 
 	private boolean puedeIncribirse(Curso curso) {

@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import modelo.Enum.Dia;
 import modelo.Enum.Turno;
 import modelo.ToView.AlumnoToView;
+import modelo.ToView.CarreraToView;
 import modelo.ToView.CursoToView;
 import modelo.ToView.MateriaToView;
+import modelo.ToView.ProfesorToView;
 import modelo.excepciones.NoDictaMateriaException;
 import modelo.excepciones.NoExisteAlumnoException;
 import modelo.excepciones.NoExisteCarreraException;
@@ -21,6 +23,7 @@ import modelo.excepciones.ProfesorNoDisponibleException;
 public class Instituto {
 
 	private static Instituto instance;
+	
 	private ArrayList<Carrera> carreras;
 	private ArrayList<Materia> materias;
 	private ArrayList<Curso> cursos;
@@ -51,6 +54,17 @@ public class Instituto {
 		carreras.add(c);
 		
 		return c.getCodigo();
+	}
+	
+	public ArrayList<CarreraToView> getCarrerasExistenes() {
+
+		ArrayList<CarreraToView> carrerasToView = new ArrayList<>();
+		
+		for(Carrera carrera : carreras) {
+			carrerasToView.add(carrera.toView());
+		}
+		
+		return carrerasToView;
 	}
 	
 	
@@ -98,6 +112,16 @@ public class Instituto {
 		int nroLegajoProfesor = profesor.getLegajo();
 		return nroLegajoProfesor;
 	}
+	
+	public ArrayList<ProfesorToView> getProfesoresDisponibles(){
+		ArrayList<ProfesorToView> profesoresToView = new ArrayList<>();
+		
+		for(Profesor profesor : profesores) {
+			profesoresToView.add(profesor.toView());
+		}
+		
+		return profesoresToView;
+	}
 
 	public void agregarMateriaAProfesor(int nroLegajo, String codigoMateria, String descripcionMateria)
 			throws NoExisteProfesor, NoExisteMateriaException {
@@ -108,9 +132,11 @@ public class Instituto {
 
 	}
 
-	public void agregarAlumnoNuevo(String nombre, String apellido, String dni) {
+	public int agregarAlumnoNuevo(String nombre, String apellido, String dni) {
 		Alumno alumno = new Alumno(nombre, apellido, dni);
 		alumnos.add(alumno);
+		
+		return alumno.getLegajo();
 	}
 
 	public void inscribirAlumnoEnCurso(int legajoAlumno, int codigoCarrera, String codigoMateria,
@@ -229,5 +255,7 @@ public class Instituto {
 		}
 		throw new NoExisteCarreraException("No existe la carrera");
 	}
+
+	
 
 }

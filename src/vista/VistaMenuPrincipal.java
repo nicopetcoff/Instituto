@@ -131,6 +131,35 @@ public class VistaMenuPrincipal extends JFrame {
 				
 			}
 		});
+		
+		JButton crearAlumno = new JButton("Crear Alumno");
+		cont.add(crearAlumno);
+		
+		crearAlumno.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				VentanaCrearAlumno ventana = new VentanaCrearAlumno();
+				ventana.setVisible(true);
+				
+			}
+		});
+		
+		JButton inscribirAlumnoEnCurso = new JButton("Inscribir Alumno en Curso");
+		cont.add(inscribirAlumnoEnCurso);
+		inscribirAlumnoEnCurso.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				VentanaInscribirAlumnoEnCurso ventana = new VentanaInscribirAlumnoEnCurso();
+				ventana.setVisible(true);
+				
+			}
+		});
 
 		//pack();
 	}

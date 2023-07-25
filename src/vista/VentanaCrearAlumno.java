@@ -4,22 +4,19 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import controlador.InstitutoController;
 
-public class VentanaAgregarProfesor extends JFrame {
-
+public class VentanaCrearAlumno extends JFrame{
+	
 	InstitutoController controlador = new InstitutoController();
 	
-	public VentanaAgregarProfesor() {
+	public VentanaCrearAlumno() {
+		
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		
 
 		JPanel panel = new JPanel(new GridLayout(4, 2, 10, 10));
 		add(panel);
@@ -45,9 +42,9 @@ public class VentanaAgregarProfesor extends JFrame {
 				String apellido = apellidoField.getText();
 				String dni = dniField.getText();
 
-				int nroLegajoProfesor = controlador.agregarProfesor(nombre, apellido, dni);
+				int nroLegajoAlumno = controlador.crearAlumno(nombre, apellido, dni);
 
-				JOptionPane.showMessageDialog(null, "Se ha registrado Profesor con Legajo N°: " + nroLegajoProfesor, "",
+				JOptionPane.showMessageDialog(null, "Se ha registrado Alumno con Legajo N°: " + nroLegajoAlumno, "",
 						JOptionPane.INFORMATION_MESSAGE);
 				dispose();
 
@@ -62,8 +59,8 @@ public class VentanaAgregarProfesor extends JFrame {
 		panel.add(dniLabel);
 		panel.add(dniField);
 		panel.add(aceptar);
-
+		
 		pack();
+		
 	}
-
 }

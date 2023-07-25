@@ -51,9 +51,9 @@ public class Carrera {
 		return materiasToView;
 	}
 
-	public CarreraToView carreraToView() {
+	public CarreraToView toView() {
 
-		return (new CarreraToView(this.codigo, this.descripcion, this.materiasCarrera));
+		return (new CarreraToView(this.nombre, this.codigo, this.descripcion, this.materiasCarrera));
 
 	}
 

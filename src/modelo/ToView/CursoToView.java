@@ -33,7 +33,7 @@ public class CursoToView {
 	}
 
 	public CarreraToView getCarrera() {
-		return carrera.carreraToView();
+		return carrera.toView();
 	}
 
 	public MateriaToView getMateria() {
